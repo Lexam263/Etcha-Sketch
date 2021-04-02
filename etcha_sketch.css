@@ -1,0 +1,28 @@
+
+.grid {
+    display: flex;
+    height: 800px;
+    flex-wrap: wrap;
+}
+
+.square1 {
+    background-color: blue;
+    width: 50%;
+    height: 50%;
+}
+.square2 {
+    background-color: orange;
+    width: 50%;
+    height: 50%;
+}
+.square3 {
+    background-color: green;
+    width: 50%;
+    height: 50%;
+}
+.square4 {
+    background-color: indigo;
+    width: 50%;
+    height: 50%;
+}
+
