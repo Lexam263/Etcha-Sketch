@@ -9,31 +9,53 @@
     </header>
 <body>
 
-    <div id="grid"></div>
+    <div id="gridContainer" class = "gridContainer"></div>
+    <div id="resolution">
+    </div>
 <script>
 //*****************************************************************************
 
-let grid = document.querySelector("#grid");
-    grid.classList.add("grid");
-    
-    let square = ""
-    let squareNum = (16 * 16);
-
-    function gridFunction() {
-        for (i = 0; i < squareNum; i++) {
-            square = document.createElement("div");
-        square.classList.add("square");
-        square.
-        grid.appendChild(square);
-
-        }
+let gridContainer = document.getElementById("gridContainer");
+let numInput = 50; 
 
 
-    }
+let resolution = document.getElementById("resolution");
+let numPrompt = document.createElement("INPUT");// prompt("What size would you like your canvas?", "Type a number here");
+numPrompt.setAttribute("type", "number");
+resolution.appendChild(numPrompt);
 
-gridFunction();
+
+let numSubmit = document.createElement("button");
+numSubmit.textContent = "Resolution";
+resolution.appendChild(numSubmit);
+
+numSubmit.addEventListener("input", resChange);
+
+function resChange() {
+    return numInput = numPrompt;
+}
 
 
+
+
+let numSquared = (numInput * numInput);
+console.log(numSquared);
+
+let numArray = [];
+for (i = 0; i< numInput; i++) {
+    numArray.push('auto');
+}
+let numString = numArray.join(' ');
+gridContainer.style.gridTemplateColumns = numString;
+
+for (i = 0; i < numSquared; i++) {
+let cell = document.createElement("div");
+cell.classList.add("cell");
+gridContainer.appendChild(cell); }
+
+
+console.log(numArray);
+console.log(numString);
 
 //*****************************************************************************
 </script>
