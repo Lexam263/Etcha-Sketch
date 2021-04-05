@@ -1,17 +1,65 @@
 <!DOCTYPE html>
 <html> 
     <head>
-        <link rel="stylesheet" href="etcha_sketch.css">
+        <style>
+            .gridContainer {
+                display: grid;
+                row-gap: 20px;
+                column-gap: 20px;
+                background: black;
+                padding: 10px;
+                border: 5px solid black;
+            }
+            .cell {
+                background: orange;
+                text-align: center;
+                padding: 10px 10px;
+                font-size: 20px;
+            }
+            
+        </style>
     </head>
     <header>
         <meta charset="utf-8">
         <title>Scratch Pad</title>
     </header>
 <body>
+    <div id="gridContainer" class = "gridContainer"></div>
+
+       
 
 <script>
 //*****************************************************************************
+let gridContainer = document.getElementById("gridContainer");
 
+let numInput = prompt("What size would you like your canvas?", "Type a number here");
+numInput = parseInt(numInput);
+
+
+
+let numSquared = (numInput * numInput);
+console.log(numSquared);
+
+let numArray = [];
+for (i = 0; i< numInput; i++) {
+    numArray.push('10px');
+}
+let numString = numArray.join(', ');
+let numRows = numString;
+let numColumns = numString;
+gridContainer.style.gridTemplateColumns = numColumns;
+gridContainer.style.gridTemplateRows = numRows;
+
+for (i = 0; i < numSquared; i++) {
+let item1 = document.createElement("div");
+item1.classList.add("cell");
+gridContainer.appendChild(item1); }
+
+
+
+
+console.log(numArray);
+console.log(numString);
 
 
 //*****************************************************************************

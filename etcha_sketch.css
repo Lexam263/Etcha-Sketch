@@ -1,28 +1,19 @@
 
 .grid {
-    display: flex;
-    height: 800px;
-    flex-wrap: wrap;
+    
+    height: 100px;
+    width: 100px;
+    row-gap: 1px;
+    column-gap: 1px;
 }
 
-.square1 {
+.square {
+    display: grid;
     background-color: blue;
-    width: 50%;
-    height: 50%;
-}
-.square2 {
-    background-color: orange;
-    width: 50%;
-    height: 50%;
-}
-.square3 {
-    background-color: green;
-    width: 50%;
-    height: 50%;
-}
-.square4 {
-    background-color: indigo;
-    width: 50%;
-    height: 50%;
+    width: 25%;
+    height: 25%;
+    grid-template-columns: repeat(1, 10px);
+    grid-template-rows: repeat(1, 10px);
+
 }
 

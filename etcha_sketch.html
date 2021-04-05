@@ -16,23 +16,22 @@
 let grid = document.querySelector("#grid");
     grid.classList.add("grid");
     
-    let square1 = document.createElement("div");
-    square1.classList.add("square1");
-    grid.appendChild(square1);
+    let square = ""
+    let squareNum = (16 * 16);
 
-    let square2 = document.createElement("div");
-    square2.classList.add("square2");
-    grid.appendChild(square2);
+    function gridFunction() {
+        for (i = 0; i < squareNum; i++) {
+            square = document.createElement("div");
+        square.classList.add("square");
+        square.
+        grid.appendChild(square);
 
-    let square3 = document.createElement("div");
-    square3.classList.add("square3");
-    grid.appendChild(square3);
-
-    let square4 = document.createElement("div");
-    square4.classList.add("square4");
-    grid.appendChild(square4);
+        }
 
 
+    }
+
+gridFunction();
 
 
 
