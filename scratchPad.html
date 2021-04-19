@@ -2,20 +2,24 @@
 <html> 
     <head>
         <style>
-            .gridContainer {
-                display: grid;
-                background-color: blue;
-                width: 800px;
-                height: 800px;
-            }
-            .cell {
-                background: orange;
-                border: 1px solid blue;
-                font-size: 20px; 
-                text-align: center;
-                height: auto;
-            }
-            
+           .body {
+    background-color: black;
+    color: orange;
+}
+.gridContainer {
+    display: grid;
+    background-color: blue;
+    color: orange;
+    width: 800px;
+    height: 800px;
+    }
+.cell {
+    background: white;
+    border: 1px solid blue;
+    font-size: 20px; 
+    text-align: center;
+    height: auto;
+    } 
         </style>
     </head>
     <header>
@@ -23,39 +27,28 @@
         <title>Scratch Pad</title>
     </header>
 <body>
-    <div id="gridContainer" class = "gridContainer"></div>
+
+    
+   <div></div>
+
         
        
 
 <script>
 //*****************************************************************************
-let gridContainer = document.getElementById("gridContainer");
-let cell = document.getElementById("cell");
-let numInput = 20 // prompt("What size would you like your canvas?", "Type a number here");
-numInput = parseInt(numInput);
+let arr = [1 ,2 ,3, 4, 5, 6, 7, 8, 9, 10];
 
-
-
-let numSquared = (numInput * numInput);
-console.log(numSquared);
-
-let numArray = [];
-for (i = 0; i< numInput; i++) {
-    numArray.push('auto');
+for (i = 0; i< arr; i++) {
+        cell = document.createElement("div");
+        cellIDArray.push(i);
+        cell.setAttribute("id", i);
+        body.document.appendChild(cell);
+        cellValue = document.getElementById(i);
+        cellValue.addEventListener("mouseenter", cellChange)
+    }
 }
-let numString = numArray.join(' ');
-gridContainer.style.gridTemplateColumns = numString;
-
-for (i = 0; i < numSquared; i++) {
-let cell = document.createElement("div");
-cell.classList.add("cell");
-gridContainer.appendChild(cell); }
 
 
-
-
-console.log(numArray);
-console.log(numString);
 
 
 //*****************************************************************************

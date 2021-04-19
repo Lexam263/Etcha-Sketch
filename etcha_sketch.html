@@ -7,55 +7,88 @@
         <meta charset="utf-8">
         <title>Etcha Sketch</title>
     </header>
-<body>
+<body class="body">
 
-    <div id="gridContainer" class = "gridContainer"></div>
-    <div id="resolution">
-    </div>
+    <div id="gridContainer"></div>
+    <div id="resChange">
+        <input type="number" name="res" id="res">Resolution</input>
+        <button onclick="resChange(document.getElementById('res').value)">Submit</button></div> </div>
 <script>
 //*****************************************************************************
 
-let gridContainer = document.getElementById("gridContainer");
-let numInput = 50; 
+//Variables 
 
-
-let resolution = document.getElementById("resolution");
-let numPrompt = document.createElement("INPUT");// prompt("What size would you like your canvas?", "Type a number here");
-numPrompt.setAttribute("type", "number");
-resolution.appendChild(numPrompt);
-
-
-let numSubmit = document.createElement("button");
-numSubmit.textContent = "Resolution";
-resolution.appendChild(numSubmit);
-
-numSubmit.addEventListener("input", resChange);
-
-function resChange() {
-    return numInput = numPrompt;
-}
-
-
-
-
+//Sets up initial grid.
+gridContainer.classList.add("gridContainer");
+document.body.appendChild(gridContainer);
+let numInput = 5; 
+let numString;
+let n = 1.0;
 let numSquared = (numInput * numInput);
-console.log(numSquared);
-
 let numArray = [];
-for (i = 0; i< numInput; i++) {
+let cellIDArray = [];
+//Creates the individual cells for the grid
+let cell;
+let cellID;
+let cellClass;
+let randomColor;
+
+function grid() {
+numSquared = (numInput * numInput);
+    for (i = 0; i< numInput; i++) {
     numArray.push('auto');
 }
-let numString = numArray.join(' ');
-gridContainer.style.gridTemplateColumns = numString;
-
+    numString = numArray.join(' ');
+    gridContainer.style.gridTemplateColumns = numString;
+    //Populates the new cells. 
 for (i = 0; i < numSquared; i++) {
-let cell = document.createElement("div");
-cell.classList.add("cell");
-gridContainer.appendChild(cell); }
+        cell = document.createElement("div");
+        cell.classList.add("cell");
+        cellIDArray.push(i);
+        cellID = i;
+        cell.setAttribute("id", [i]);
+        gridContainer.appendChild(cell);
+}
+document.querySelectorAll('.cell').forEach(cellValue => {
+    cellValue.addEventListener("mouseenter", () => {
+        console.log(cellID);
+        randomColor = Math.floor(Math.random()*16777215).toString(16);
+            cellValue.style.backgroundColor = "#" + randomColor;    
+            n = n-0.1;
+                
+                numString = n.toString();
+                cellValue.style.opacity = numString;
+        });
+    });
+}
 
 
-console.log(numArray);
-console.log(numString);
+grid();
+
+//Changes the grid to the users specifications.
+ function resChange(res) {
+    cellIDArray = [];
+    //Resets grid to 0.
+     for (i = 0; i<numSquared; i++) {
+    let gridContainer = document.getElementById("gridContainer");
+    if (gridContainer.hasChildNodes()) {
+        gridContainer.removeChild(gridContainer.childNodes[0]);
+    }}
+    //Prevents the resolution from getting set too high. Or someone using a negative number.
+    if (res > 100) {
+        alert("Maximum resolution is 100 squares by 100 squares");
+        res = 5;
+    } else if (res <= 0) {
+        alert("Don't be so negative!");
+        res = 5;
+    }
+    //Resets the columns and applies the users input for the new columns.
+    numArray = [];
+    numInput = res;
+    grid();
+}  
+
+
 
 //*****************************************************************************
 </script>

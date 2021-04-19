@@ -1,14 +1,20 @@
 
+.body {
+    background-color: rgb(5, 5, 90);
+    color: orange;
+}
 .gridContainer {
     display: grid;
-    background-color: blue;
+    background-color: black;
+    color: orange;
     width: 800px;
     height: 800px;
     }
 .cell {
-    background: orange;
+    background: white;
     border: 1px solid blue;
     font-size: 20px; 
     text-align: center;
     height: auto;
     }
+
