@@ -19,9 +19,10 @@
 //Variables 
 
 //Sets up initial grid.
+gridContainer = document.getElementById("gridContainer");
 gridContainer.classList.add("gridContainer");
 document.body.appendChild(gridContainer);
-let numInput = 5; 
+let numInput = 16; 
 let numString;
 let n = 1.0;
 let numSquared = (numInput * numInput);
@@ -51,11 +52,10 @@ for (i = 0; i < numSquared; i++) {
 }
 document.querySelectorAll('.cell').forEach(cellValue => {
     cellValue.addEventListener("mouseenter", () => {
-        console.log(cellID);
         randomColor = Math.floor(Math.random()*16777215).toString(16);
             cellValue.style.backgroundColor = "#" + randomColor;    
-            n = n-0.1;
-                
+            if (n > 0.0) {n = n-0.1; }
+            else { n = 1.0};
                 numString = n.toString();
                 cellValue.style.opacity = numString;
         });
